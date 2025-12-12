@@ -1,0 +1,118 @@
+{
+    "friends": [
+        {
+            "name": "Randall",
+            "avatar": "https://gravatar.com/avatar/d7f33765308b833cb9389be830619aeb?size=256",
+            "description": "Innovation Propelling Growth",
+            "url": "https://blog.randall.vip/"
+        },
+        {
+            "name": "炊烟",
+            "avatar": "https://copyapi.icysn.com/api/file-view/ChuiYan",
+            "description": "小馋猫",
+            "url": "https://blog.icysn.com/"
+        },
+        {
+            "name": "Asonlino",
+            "avatar": "https://photo.icysn.com/file/Asonlino.jpg",
+            "description": "無限進步",
+            "url": "https://b.cricloud.top/"
+        },
+        {
+            "name": "间窗的博客",
+            "avatar": "https://cdn2.enltlh.me/pichub/1/2025/038dad892dfa6075.png",
+            "description": "窗外是蓝天白云，心里是小杏扉间",
+            "url": "https://www.vindo.cn/"
+        },
+        {
+            "name": "Auriel",
+            "avatar": "https://blog.auriel.top/img/avatar.png",
+            "description": "生活的最佳状态，是冷冷清清的风风火火",
+            "url": "https://blog.auriel.top/"
+        },
+        {
+            "name": "NodeSeek",
+            "avatar": "https://www.nodeseek.com/static/image/favicon/android-chrome-192x192.png",
+            "description": "旨在为主机爱好者打造高品质社区，传播行业信息，分享技术心得",
+            "url": "https://www.nodeseek.com/"
+        },
+        {
+            "name": "张苹果",
+            "avatar": "https://zhangpingguo.com/logo.jpg",
+            "description": "这个人很简单 没什么好说的",
+            "url": "https://zhangpingguo.com"
+        },
+        {
+            "name": "口袋分享记",
+            "avatar": "https://img.111620.xyz/2025/07/29/6887b5efbf768.png",
+            "description": "所谓过往，皆为序章。虚室生白️",
+            "url": "https://111620.xyz/"
+        },
+        {
+            "name": "LinuxDo",
+            "avatar": "https://linux.do/uploads/default/optimized/4X/6/a/6/6a6affc7b1ce8140279e959d32671304db06d5ab_2_180x180.png",
+            "description": "新的理想型社区",
+            "url": "https://linux.do/"
+        },
+        {
+            "name": "安知鱼",
+            "avatar": "https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg",
+            "description": "生活明朗，万物可爱",
+            "url": "https://blog.anheyu.com/"
+        },
+        {
+            "name": "NMSL.CN",
+            "avatar": "https://nmsl.cn/icon.webp",
+            "description": "Never Mind the Scandal and Liber",
+            "url": "https://nmsl.cn/"
+        },
+        {
+            "name": "Puo's 菜园子",
+            "avatar": "http://puo.puo.cn/img-cun/puo.cn-logo.png",
+            "description": "个人学习的菜园子，wordpress，域名，建站，物流等笔记及生活感触",
+            "url": "http://puo.cn"
+        },
+        {
+            "name": "Travis's Westworld",
+            "avatar": "https://chrivs.com/images/favicon.png",
+            "description": "一个极简的博客",
+            "url": "https://chrivs.com/"
+        },
+        {
+            "name": "鮦峃㗽翳",
+            "avatar": "https://cdn-dov.pages.dev/emby/icon/DogOne.png",
+            "description": "自由自在",
+            "url": "https://blog.xylyra.com/"
+        },
+        {
+            "name": "ElysiumStack",
+            "avatar": "https://www.elysium-stack.cn/upload/ee0757e6-ebb4-46d0-a388-660f648653ea.jpg",
+            "description": "不会摄影的设计师不是优秀的旅行家",
+            "url": "https://www.elysium-stack.cn/"
+        },
+        {
+            "name": "情酱QingJ",
+            "avatar": "https://q1.qlogo.cn/g?b=qq&nk=2903609300&s=100",
+            "description": "努力生活，慢慢变好",
+            "url": "http://blog.qytechs.cn"
+        },
+        {
+            "name": "I Am I",
+            "avatar": "https://cdn.jsdelivr.net/gh/5ime/img/avatar.jpg",
+            "description": "永远相信美好的事情即将发生",
+            "url": "https://5ime.cn"
+        },
+        {
+            "name": "GTX690战术核显卡导弹的猫窝",
+            "avatar": "https://logo.nekopara.uk/logo.jpg",
+            "description": "一个过气UP的博客，喜欢计算机技术，希望交个朋友",
+            "url": "https://www.nekopara.uk"
+        },
+        {
+            "name": "云奚小屋",
+            "avatar": "https://cdn.picui.cn/vip/2025/10/30/6903304697bcd.png",
+            "description": "云奚小屋收录世界美好一瞬间！",
+            "url": "https://yxgoa.cn/"
+        }
+    ]
+}

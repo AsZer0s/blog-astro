@@ -1,0 +1,127 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { Icon } from "astro-icon/components";
+import type { FriendsData } from "@/types/data";
+import friendsData from "@/data/friends.json";
+import { siteConfig, profileConfig } from "@/config";
+
+const { friends } = friendsData as FriendsData;
+const siteUrl = Astro.site?.href || "https://blog.hiyun.top";
+const siteName = siteConfig.title;
+const siteAvatar = profileConfig.avatar || "";
+const siteDescription = siteConfig.subtitle || profileConfig.bio || "";
+---
+
+<MainGridLayout title="友链">
+    <div class="card-base p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-6">
+            <div class="h-8 w-8 rounded-lg bg-[var(--primary)] flex items-center justify-center text-white dark:text-black/70">
+                <Icon name="material-symbols:diversity-3" class="text-[1.5rem]">
+            </div>
+            <h1 class="text-2xl font-bold text-black dark:text-white">友链</h1>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {friends.map((friend) => (
+                <a href={friend.url} target="_blank" class="friend-card">
+                    <div class="flex items-center gap-2">
+                        <img src={friend.avatar} loading="lazy" class="w-5 h-5 rounded" alt={`${friend.name}的头像`}>
+                        <div class="font-bold text-black dark:text-white">{friend.name}</div>
+                    </div>
+                    <div class="text-sm text-black/50 dark:text-white/50">{friend.description}</div>
+                </a>
+            ))}
+        </div>
+
+        <!-- 申请友链 -->
+        <div class="sponsors-section mt-8">
+        	<h2 class="text-xl font-bold text-black dark:text-white mb-4 flex items-center gap-2">
+        		<Icon name="material-symbols:group" class="text-[1.5rem] text-[var(--primary)]"/>
+        		将您的网站加入本站友链
+        	</h2>
+        	<p class="text-sm text-black/60 dark:text-white/60 mb-4">
+        		请发送邮件至 <a href="mailto:skycoreyun@gmail.com" class="transition link text-[var(--primary)] font-medium underline">skycoreyun@gmail.com</a> 申请友链
+        	</p>
+        	
+        	<!-- 本站信息 -->
+        	<div class="bg-[var(--btn-regular-bg)] rounded-lg p-4 border border-[var(--line-divider)] mb-4">
+        		<p class="text-sm font-semibold text-black dark:text-white mb-3 flex items-center gap-2">
+        			<Icon name="material-symbols:info" class="text-[1.2rem] text-[var(--primary)]"/>
+        			请先在您的博客添加本站信息：
+        		</p>
+        		<div class="bg-[var(--card-bg)] rounded-lg p-4 border border-[var(--line-divider)]">
+        			<div class="flex items-center gap-3 mb-3">
+        				<img src={siteAvatar} alt={siteName} class="w-12 h-12 rounded-lg object-cover" />
+        				<div>
+        					<div class="font-bold text-black dark:text-white">{siteName}</div>
+        					<a href={siteUrl} target="_blank" class="text-sm text-[var(--primary)] hover:underline">{siteUrl}</a>
+        				</div>
+        			</div>
+        			<div class="text-sm text-black/70 dark:text-white/70 mb-3">{siteDescription}</div>
+        			<div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-black/60 dark:text-white/60">
+        				<div><strong class="text-black dark:text-white">网站名：</strong>{siteName}</div>
+        				<div><strong class="text-black dark:text-white">URL：</strong><code class="bg-[var(--inline-code-bg)] px-1 rounded">{siteUrl}</code></div>
+        				<div><strong class="text-black dark:text-white">头像：</strong><code class="bg-[var(--inline-code-bg)] px-1 rounded break-all">{siteAvatar}</code></div>
+        				<div><strong class="text-black dark:text-white">简介：</strong>{siteDescription}</div>
+        			</div>
+        		</div>
+        	</div>
+        	
+        	<!-- 需要提供的信息 -->
+        	<div class="bg-[var(--btn-regular-bg)] rounded-lg p-4 border border-[var(--line-divider)]">
+        		<p class="text-sm font-semibold text-black dark:text-white mb-3">请在邮件中提供以下信息：</p>
+        		<ul class="space-y-2 text-sm text-black/70 dark:text-white/70">
+        			<li class="flex items-start gap-2">
+        				<span class="text-[var(--primary)]">•</span>
+        				<span><strong class="text-black dark:text-white">网站名：</strong>您的网站名称</span>
+        			</li>
+        			<li class="flex items-start gap-2">
+        				<span class="text-[var(--primary)]">•</span>
+        				<span><strong class="text-black dark:text-white">URL：</strong>您的网站地址</span>
+        			</li>
+        			<li class="flex items-start gap-2">
+        				<span class="text-[var(--primary)]">•</span>
+        				<span><strong class="text-black dark:text-white">头像地址：</strong>网站头像/Logo 的图片链接</span>
+        			</li>
+        			<li class="flex items-start gap-2">
+        				<span class="text-[var(--primary)]">•</span>
+        				<span><strong class="text-black dark:text-white">简介：</strong>网站简介或标语</span>
+        			</li>
+        		</ul>
+        	</div>
+        </div>
+    </div>
+
+</MainGridLayout>
+
+<style>
+    .friend-card {
+        @apply flex flex-col gap-1 p-4 rounded-lg bg-[var(--card-bg)] hover:bg-black/5 dark:hover:bg-white/5;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+    }
+    
+    .friend-card:active {
+        scale: .98;
+        background-color: var(--btn-regular-bg-active);
+    }
+    
+    .friend-card:hover {
+        background-color: var(--btn-regular-bg-hover);
+    }
+    
+    .friend-card:hover .font-bold {
+        color: var(--btn-content);
+    }
+    
+    .friend-card:hover .text-sm {
+    @apply text-gray-700 dark:text-white;
+    }
+
+    .friend-card .font-bold,
+    .friend-card .text-sm {
+        transition-property: color;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+    }
+</style>

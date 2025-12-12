@@ -1,5 +1,6 @@
 # build output
 dist/
+
 # generated types
 .astro/
 
@@ -19,11 +20,12 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# Editor directories and files
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.vercel
+
+package-lock.json
+bun.lockb
+yarn.lock
+
+# ide
+.idea
+*.iml

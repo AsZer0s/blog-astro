@@ -1,0 +1,7 @@
+{
+    "name": "ObsiBlog",
+    "installCommand": "pnpm install",
+    "assets": {
+      "directory": "./dist"
+    }
+}

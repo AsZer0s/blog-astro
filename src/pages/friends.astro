@@ -1,9 +1,9 @@
 ---
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { Icon } from "astro-icon/components";
-import type { FriendsData } from "@/types/data";
+import { profileConfig, siteConfig } from "@/config";
 import friendsData from "@/data/friends.json";
-import { siteConfig, profileConfig } from "@/config";
+import type { FriendsData } from "@/types/data";
 
 const { friends } = friendsData as FriendsData;
 const siteUrl = Astro.site?.href || "https://blog.hiyun.top";

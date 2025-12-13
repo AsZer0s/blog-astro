@@ -67,10 +67,16 @@ export const profileConfig: ProfileConfig = {
 			url: "https://github.com/AsZer0s",
 		},
 		{
-			name: "开往",
+			name: "",
 			icon: "material-symbols:train",
 			url: "https://www.travellings.cn/go.html",
 		},
+		{
+			name: "",
+			icon: "material-symbols:public",
+			url: "https://blogs.quest/",
+		},
+		
 	],
 };
 

@@ -50,7 +50,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "https://photo.icysn.com/file/Obsidian.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	avatar: "https://photo.icysn.cn/file/Obsidian.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "𝑶𝒃𝒔𝒊𝒅𝒊𝒂𝒏",
 	bio: "大道至简 算理无边",
 	links: [

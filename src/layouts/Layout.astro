@@ -34,11 +34,11 @@ const isHomePage = pathsEqual(Astro.url.pathname, url("/"));
 // defines global css variables
 // why doing this in Layout instead of GlobalStyles: https://github.com/withastro/astro/issues/6728#issuecomment-1502203757
 const configHue = siteConfig.themeColor.hue;
+// TODO don't use post cover as banner for now
 if (!banner || typeof banner !== "string" || banner.trim() === "") {
 	banner = siteConfig.banner.src;
 }
-
-// TODO don't use post cover as banner for now
+// Always use site config banner for now
 banner = siteConfig.banner.src;
 
 const enableBanner = siteConfig.banner.enable;
@@ -96,7 +96,7 @@ const bannerOffset =
 		<meta name="twitter:title" content={pageTitle}>
 		<meta name="twitter:description" content={description || pageTitle}>
 
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		{favicons.map(favicon => (
 			<link rel="icon"
@@ -120,16 +120,19 @@ const bannerOffset =
 			offset = offset - offset % 4;
 			document.documentElement.style.setProperty('--banner-height-extend', `${offset}px`);
 		</script>
+		<!-- Global CSS Variables -->
 		<style define:vars={{
 			configHue,
 			'page-width': `${PAGE_WIDTH}rem`,
-		}}></style>  <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
+		}}></style>
 
 
 		<slot name="head"></slot>
 
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
 
+		<!-- Analytics Scripts -->
+		<!-- Baidu Analytics -->
 		<script is:inline>
 			var _hmt = _hmt || [];
 			(function() {
@@ -140,8 +143,35 @@ const bannerOffset =
 			})();
 		</script>
 
+		<!-- Microsoft Clarity -->
+		<script is:inline type="text/javascript">
+			(function(c,l,a,r,i,t,y){
+				c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+				t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+				y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+			})(window, document, "clarity", "script", "ukx15f00hl");
+		</script>
+
+		<!-- Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-8S98V5V3CJ"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-8S98V5V3CJ');
+		</script>
+
+		<!-- Cloudflare Web Analytics -->
+		<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "48ddfb6219d3433cbc1837411246644f"}'></script>
+
+		<!-- Umami Analytics -->
+		<script defer src="https://umami.hiyun.top/script.js" data-website-id="3a1cf66b-81ff-48db-916c-ab2694dba025"></script>
+
+		<!-- Resource Hints -->
+		<link rel="prefetch" as="image" href="https://www.blogsclub.org/badge/blog.hiyun.top">
+
 	</head>
-	<body class=" min-h-screen transition " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
+	<body class="min-h-screen transition" class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
 		  data-overlayscrollbars-initialize
 	>
 		<ConfigCarrier></ConfigCarrier>
@@ -222,7 +252,7 @@ import {
 	// SizeObserverPlugin,
 	// ClickScrollPlugin
 } from 'overlayscrollbars';
-import {getHue, getStoredTheme, setHue, setTheme} from "../utils/setting-utils";
+import {getHue, setHue} from "../utils/setting-utils";
 import {pathsEqual, url} from "../utils/url-utils";
 import {
 	BANNER_HEIGHT,
@@ -394,18 +424,19 @@ function init() {
 init();
 
 const setup = () => {
-	// TODO: temp solution to change the height of the banner
-/*
-	window.swup.hooks.on('animation:out:start', () => {
-		const path = window.location.pathname
-		const body = document.querySelector('body')
-		if (path[path.length - 1] === '/' && !body.classList.contains('is-home')) {
-			body.classList.add('is-home')
-		} else if (path[path.length - 1] !== '/' && body.classList.contains('is-home')) {
-			body.classList.remove('is-home')
-		}
-	})
-*/
+		// TODO: temp solution to change the height of the banner
+		// Commented out: alternative approach for banner height management
+		/*
+		window.swup.hooks.on('animation:out:start', () => {
+			const path = window.location.pathname
+			const body = document.querySelector('body')
+			if (path[path.length - 1] === '/' && !body.classList.contains('is-home')) {
+				body.classList.add('is-home')
+			} else if (path[path.length - 1] !== '/' && body.classList.contains('is-home')) {
+				body.classList.remove('is-home')
+			}
+		})
+		*/
 	window.swup.hooks.on('link:click', () => {
 		// Remove the delay for the first time page load
 		document.documentElement.style.setProperty('--content-delay', '0ms')
@@ -459,12 +490,12 @@ const setup = () => {
 				heightExtend.classList.add('hidden')
 			}
 
-            // Just make the transition looks better
-            const toc = document.getElementById('toc-wrapper');
-            if (toc) {
-                toc.classList.remove('toc-not-ready')
-            }
-        }, 200)
+			// Just make the transition looks better
+			const toc = document.getElementById('toc-wrapper');
+			if (toc) {
+				toc.classList.remove('toc-not-ready')
+			}
+		}, 200)
 	});
 }
 if (window?.swup?.hooks) {

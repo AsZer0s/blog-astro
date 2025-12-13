@@ -62,17 +62,17 @@ export const profileConfig: ProfileConfig = {
 		// 	url: "https://twitter.com",
 		// },
 		{
-			name: "",
+			name: "GitHub",
 			icon: "fa6-brands:github",
 			url: "https://github.com/AsZer0s",
 		},
 		{
-			name: "",
+			name: "Traveling",
 			icon: "material-symbols:train",
 			url: "https://www.travellings.cn/go.html",
 		},
 		{
-			name: "",
+			name: "BlogQuest",
 			icon: "material-symbols:public",
 			url: "https://blogs.quest/",
 		},

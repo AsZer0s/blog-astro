@@ -1,6 +1,6 @@
 ---
 title: 联系我
-image: https://www.loliapi.com/acg/
+image: https://esa-img.20240828.xyz/i/pc/img362.webp
 published: 2024-01-01
 pinned: true
 tags:

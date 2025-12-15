@@ -94,7 +94,19 @@
 			"name": "云奚小屋",
 			"avatar": "https://cdn.picui.cn/vip/2025/10/30/6903304697bcd.png",
 			"description": "云奚小屋收录世界美好一瞬间！",
-			"url": "https://yxgoa.cn/"
+			"url": "https://yxgoa.cn"
+		},
+		{
+			"name": "Honesty",
+			"avatar": "https://www.hehouhui.cn/images/avatar.jpeg",
+			"description": "从浩瀚无垠的知识中看到到一缕光",
+			"url": "https://blog.hehouhui.cn"
+		},
+		{
+			"name": "夜初尧",
+			"avatar": "https://094918.xyz/head.jpg",
+			"description": "无欲无求 笑口常开",
+			"url": "https://094918.xyz"
 		}
 	]
 }

@@ -177,6 +177,63 @@ const bannerOffset =
 	<body class="min-h-screen transition" class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
 		  data-overlayscrollbars-initialize
 	>
+		<!-- Full screen loading overlay -->
+		<div id="page-loading-overlay" class="fixed inset-0 z-[9999] bg-[var(--page-bg)] flex items-center justify-center transition-opacity duration-500 overflow-hidden">
+			<!-- Particle canvas background -->
+			<canvas id="particle-canvas" class="absolute inset-0 w-full h-full"></canvas>
+			
+			<!-- Main loading content -->
+			<div class="relative z-10 flex flex-col items-center gap-6">
+				<!-- Central orb with particles -->
+				<div class="relative w-24 h-24">
+					<!-- Glowing center orb -->
+					<div class="absolute inset-0 flex items-center justify-center">
+						<div class="w-16 h-16 bg-[var(--primary)] rounded-full opacity-20 blur-xl animate-pulse" style="animation-duration: 2s;"></div>
+						<div class="absolute w-12 h-12 border-2 border-[var(--primary)] rounded-full animate-spin" style="animation-duration: 3s; box-shadow: 0 0 20px var(--primary);"></div>
+						<div class="absolute w-8 h-8 border-2 border-[var(--primary)] rounded-full animate-spin" style="animation-duration: 2s; animation-direction: reverse; box-shadow: 0 0 15px var(--primary);"></div>
+						<div class="absolute w-4 h-4 bg-[var(--primary)] rounded-full" style="box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);"></div>
+					</div>
+					<!-- Orbiting particles -->
+					<div class="absolute inset-0">
+						<div class="particle-orbit" style="--angle: 0deg; --radius: 40px;">
+							<div class="w-2 h-2 bg-[var(--primary)] rounded-full" style="box-shadow: 0 0 8px var(--primary);"></div>
+						</div>
+						<div class="particle-orbit" style="--angle: 60deg; --radius: 40px;">
+							<div class="w-2 h-2 bg-[var(--primary)] rounded-full" style="box-shadow: 0 0 8px var(--primary);"></div>
+						</div>
+						<div class="particle-orbit" style="--angle: 120deg; --radius: 40px;">
+							<div class="w-2 h-2 bg-[var(--primary)] rounded-full" style="box-shadow: 0 0 8px var(--primary);"></div>
+						</div>
+						<div class="particle-orbit" style="--angle: 180deg; --radius: 40px;">
+							<div class="w-2 h-2 bg-[var(--primary)] rounded-full" style="box-shadow: 0 0 8px var(--primary);"></div>
+						</div>
+						<div class="particle-orbit" style="--angle: 240deg; --radius: 40px;">
+							<div class="w-2 h-2 bg-[var(--primary)] rounded-full" style="box-shadow: 0 0 8px var(--primary);"></div>
+						</div>
+						<div class="particle-orbit" style="--angle: 300deg; --radius: 40px;">
+							<div class="w-2 h-2 bg-[var(--primary)] rounded-full" style="box-shadow: 0 0 8px var(--primary);"></div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Loading text with animated dots -->
+				<div class="flex flex-col items-center gap-3">
+					<div class="flex items-center gap-2">
+						<span class="text-[var(--primary)] text-base font-medium tracking-wider" style="text-shadow: 0 0 10px var(--primary);">ObsiBlog即将为您展现精彩内容</span>
+						<div class="flex gap-1">
+							<span class="w-1.5 h-1.5 bg-[var(--primary)] rounded-full animate-bounce" style="animation-delay: 0s; animation-duration: 1.4s; box-shadow: 0 0 6px var(--primary);"></span>
+							<span class="w-1.5 h-1.5 bg-[var(--primary)] rounded-full animate-bounce" style="animation-delay: 0.2s; animation-duration: 1.4s; box-shadow: 0 0 6px var(--primary);"></span>
+							<span class="w-1.5 h-1.5 bg-[var(--primary)] rounded-full animate-bounce" style="animation-delay: 0.4s; animation-duration: 1.4s; box-shadow: 0 0 6px var(--primary);"></span>
+						</div>
+					</div>
+					<!-- Progress bar -->
+					<div class="w-64 h-0.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
+						<div class="h-full bg-[var(--primary)] rounded-full animate-pulse" style="width: 60%; box-shadow: 0 0 10px var(--primary); animation: progress 2s ease-in-out infinite;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<ConfigCarrier></ConfigCarrier>
 		<slot />
 
@@ -217,6 +274,35 @@ const bannerOffset =
 	
 	div.relative {
 		opacity: 0.9;
+	}
+	
+	/* Particle orbit animation */
+	.particle-orbit {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle)));
+		animation: orbit 4s linear infinite;
+	}
+	
+	@keyframes orbit {
+		from {
+			transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle)));
+		}
+		to {
+			transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle) - 360deg));
+		}
+	}
+	
+	@keyframes progress {
+		0%, 100% {
+			width: 30%;
+			opacity: 0.6;
+		}
+		50% {
+			width: 80%;
+			opacity: 1;
+		}
 	}
 	
 	.enable-banner.is-home #banner-wrapper {
@@ -415,18 +501,154 @@ function showBanner() {
 	banner.classList.remove('opacity-0', 'scale-105');
 }
 
+function hideLoadingOverlay() {
+	if (loadingOverlayHidden) return; // Already hidden
+	loadingOverlayHidden = true;
+	
+	const overlay = document.getElementById('page-loading-overlay');
+	if (overlay) {
+		// Fade out the overlay
+		overlay.style.opacity = '0';
+		// Remove after animation completes
+		setTimeout(() => {
+			overlay.style.display = 'none';
+			// Now trigger content fade-in animations with staggered delays
+			const onloadElements = document.querySelectorAll('.onload-animation');
+			onloadElements.forEach((el, index) => {
+				setTimeout(() => {
+					(el as HTMLElement).style.opacity = '1';
+					(el as HTMLElement).style.transform = 'translateY(0)';
+				}, index * 50); // Stagger animations by 50ms
+			});
+		}, 500); // Match the transition duration
+	}
+}
+
+function initParticleCanvas() {
+	const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+	if (!canvas) return;
+	
+	const ctx = canvas.getContext('2d');
+	if (!ctx) return;
+	
+	// Set canvas size
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	
+	// Particle system
+	const particles: Array<{
+		x: number;
+		y: number;
+		vx: number;
+		vy: number;
+		size: number;
+		opacity: number;
+	}> = [];
+	
+	const particleCount = 50;
+	const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
+	
+	// Create particles
+	for (let i = 0; i < particleCount; i++) {
+		particles.push({
+			x: Math.random() * canvas.width,
+			y: Math.random() * canvas.height,
+			vx: (Math.random() - 0.5) * 0.5,
+			vy: (Math.random() - 0.5) * 0.5,
+			size: Math.random() * 2 + 1,
+			opacity: Math.random() * 0.5 + 0.2,
+		});
+	}
+	
+	function draw() {
+		if (!ctx) return;
+		
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		
+		// Update and draw particles
+		particles.forEach((particle, i) => {
+			// Update position
+			particle.x += particle.vx;
+			particle.y += particle.vy;
+			
+			// Wrap around edges
+			if (particle.x < 0) particle.x = canvas.width;
+			if (particle.x > canvas.width) particle.x = 0;
+			if (particle.y < 0) particle.y = canvas.height;
+			if (particle.y > canvas.height) particle.y = 0;
+			
+			// Draw particle
+			ctx.beginPath();
+			ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+			ctx.fillStyle = primaryColor;
+			ctx.globalAlpha = particle.opacity;
+			ctx.fill();
+			ctx.globalAlpha = 1;
+			
+			// Draw connections
+			particles.slice(i + 1).forEach(other => {
+				const dx = particle.x - other.x;
+				const dy = particle.y - other.y;
+				const distance = Math.sqrt(dx * dx + dy * dy);
+				
+				if (distance < 150) {
+					ctx.beginPath();
+					ctx.moveTo(particle.x, particle.y);
+					ctx.lineTo(other.x, other.y);
+					ctx.strokeStyle = primaryColor;
+					ctx.globalAlpha = (1 - distance / 150) * 0.3;
+					ctx.lineWidth = 0.5;
+					ctx.stroke();
+					ctx.globalAlpha = 1;
+				}
+			});
+		});
+		
+		requestAnimationFrame(draw);
+	}
+	
+	draw();
+	
+	// Handle resize
+	window.addEventListener('resize', () => {
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+	});
+}
+
 function init() {
 	// disableAnimation()()		// TODO
 	loadTheme();
 	loadHue();
 	initCustomScrollbar();
 	showBanner();
+	initParticleCanvas();
+	
+	// Wait for all resources to load before hiding overlay
+	// Check if page is already loaded
+	if (document.readyState === 'complete') {
+		// Page already loaded, wait a bit for images and other resources
+		setTimeout(hideLoadingOverlay, 200);
+	} else {
+		// Wait for page to fully load (including images, stylesheets, etc.)
+		window.addEventListener('load', () => {
+			setTimeout(hideLoadingOverlay, 200);
+		});
+	}
 }
 
 /* Load settings when entering the site */
 init();
 
+// Track if this is the initial page load
+let isInitialLoad = true;
+let swupSetupComplete = false;
+let loadingOverlayHidden = false;
+
 const setup = () => {
+	// Prevent multiple setup calls
+	if (swupSetupComplete) return;
+	swupSetupComplete = true;
 		// TODO: temp solution to change the height of the banner
 		// Commented out: alternative approach for banner height management
 		/*
@@ -441,6 +663,18 @@ const setup = () => {
 		})
 		*/
 	window.swup.hooks.on('link:click', () => {
+		// Mark that we're no longer on initial load
+		isInitialLoad = false;
+		
+		// Ensure loading overlay is hidden on subsequent navigations
+		if (!loadingOverlayHidden) {
+			const overlay = document.getElementById('page-loading-overlay');
+			if (overlay) {
+				overlay.style.display = 'none';
+				loadingOverlayHidden = true;
+			}
+		}
+		
 		// Remove the delay for the first time page load
 		document.documentElement.style.setProperty('--content-delay', '0ms')
 
@@ -457,8 +691,19 @@ const setup = () => {
 			navbar.classList.add('navbar-hidden')
 		}
 	})
-	window.swup.hooks.on('content:replace', initCustomScrollbar)
+	window.swup.hooks.on('content:replace', () => {
+		// Only reinitialize scrollbar on subsequent page loads, not initial load
+		if (!isInitialLoad) {
+			initCustomScrollbar();
+		} else {
+			// Mark as no longer initial load after first content:replace
+			isInitialLoad = false;
+		}
+	})
 	window.swup.hooks.on('visit:start', (visit: {to: {url: string}}) => {
+		// Mark that we're no longer on initial load
+		isInitialLoad = false;
+		
 		// change banner height immediately when a link is clicked
 		const bodyElement = document.querySelector('body')
 		if (pathsEqual(visit.to.url, url('/'))) {
@@ -480,12 +725,23 @@ const setup = () => {
 		}
 	});
 	window.swup.hooks.on('page:view', () => {
+		// Skip on initial load to prevent double initialization
+		if (isInitialLoad) {
+			isInitialLoad = false;
+			return;
+		}
+		
 		// hide the temp high element when the transition is done
 		const heightExtend = document.getElementById('page-height-extend')
 		if (heightExtend) {
 			heightExtend.classList.remove('hidden')
 		}
 	});
+	
+	// Mark initial load as complete after a short delay to catch any late events
+	setTimeout(() => {
+		isInitialLoad = false;
+	}, 100);
 	window.swup.hooks.on('visit:end', (_visit: {to: {url: string}}) => {
 		setTimeout(() => {
 			const heightExtend = document.getElementById('page-height-extend')
@@ -595,12 +851,21 @@ function createPhotoSwipe() {
 	lightbox.init()
 }
 
+// Track if PhotoSwipe has been initialized on initial load
+let photoSwipeInitialized = false;
+
 const setup = () => {
 	if (!lightbox) {
 		createPhotoSwipe()
+		photoSwipeInitialized = true;
 	}
 	window.swup.hooks.on("page:view", () => {
-		createPhotoSwipe()
+		// Only recreate PhotoSwipe on subsequent page loads, not initial load
+		if (photoSwipeInitialized) {
+			createPhotoSwipe()
+		} else {
+			photoSwipeInitialized = true;
+		}
 	})
 
 	window.swup.hooks.on(

@@ -21,8 +21,8 @@ html.is-animating .transition-swup-fade {
 /* Main components */
 .onload-animation {
     opacity: 0;
-    animation: 300ms fade-in-up;
-    animation-fill-mode: forwards;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 #navbar {
     animation-delay: 0ms

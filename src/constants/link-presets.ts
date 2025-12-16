@@ -5,10 +5,6 @@ export const LinkPresets: { [key in LinkPreset]: NavBarLink } = {
 		name: "主页",
 		url: "/",
 	},
-	[LinkPreset.About]: {
-		name: "关于",
-		url: "/about/",
-	},
 	[LinkPreset.Archive]: {
 		name: "归档",
 		url: "/archive/",

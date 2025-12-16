@@ -2,13 +2,11 @@
 title: 安卓私人DNS与代理中的DNS泄露问题探索
 published: 2024-11-07
 description: 安卓私人DNS与代理中的DNS泄露问题探索
+image: ../assets/images/img039.webp
 tags: [网络, 隐私]
 category: 技术
 draft: false
 ---
-
-
-
 最近，我在研究安卓设备上私人DNS、代理软件与DNS泄露的问题，使用IPCheck.ing进行了多次测试，发现了一些有趣的现象。
 
 <!-- more -->

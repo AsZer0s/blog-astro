@@ -2,13 +2,11 @@
 title: RSA加密算法简介
 published: 2025-08-07
 description: RSA加密算法简介
+image: ../assets/images/img028.webp
 tags: [RSA, 杂谈, 密码学, 安全]
 category: 技术
 draft: false
 ---
-
-
-
 ## 概述
 RSA加密算法是一种非对称加密算法，在公开密钥加密和电子商业中被广泛使用。RSA是由罗纳德·李维斯特（Ron Rivest）、阿迪·萨莫尔（Adi Shamir）和伦纳德·阿德曼（Leonard Adleman）在1977年一起提出的。当时他们三人都在麻省理工学院工作。RSA就是他们三人姓氏开头字母拼在一起组成的
 

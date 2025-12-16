@@ -2,13 +2,11 @@
 title: ArchLinux基础安装
 published: 2024-11-19
 description: ArchLinux基础安装
+image: ../assets/images/img004.webp
 tags: [Linux, 杂谈, 开发, 网络]
 category: 技术
 draft: false
 ---
-
-
-
 本篇参考 [Arch Linux 官方安装指南](https://wiki.archlinux.org/index.php/Installation_guide)
 
 <!-- more -->

@@ -2,13 +2,11 @@
 title: 国内npm源镜像
 published: 2024-11-16
 description: 国内npm源镜像
+image: ../assets/images/img036.webp
 tags: [开发, 网络]
 category: 技术
 draft: false
 ---
-
-
-
 > 国内npm源镜像（npm加速下载） 指定npm镜像
 
 <!-- more -->

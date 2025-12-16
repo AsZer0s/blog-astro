@@ -2,13 +2,11 @@
 title: MSF使用教程
 published: 2024-10-24
 description: MSF使用教程
+image: ../assets/images/img026.webp
 tags: [安全, Linux]
 category: 技术
 draft: false
 ---
-
-
-
 # Metasploit Framework
 
 <!-- more -->

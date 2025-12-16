@@ -2,13 +2,11 @@
 title: 国内外DNS列表
 published: 2024-11-09
 description: 国内外DNS列表
+image: ../assets/images/img037.webp
 tags: [隐私, 网络]
 category: 技术
 draft: false
 ---
-
-
-
 国内外知名免费公共DoT/DoH加密DNS服务器(含IPV6)
 
 <!-- more -->

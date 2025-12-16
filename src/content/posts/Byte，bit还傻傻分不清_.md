@@ -2,13 +2,11 @@
 title: Byte，bit还傻傻分不清?
 published: 2024-11-13
 description: Byte，bit还傻傻分不清?
+image: ../assets/images/img005.webp
 tags: [杂谈, 网络]
 category: 技术
 draft: false
 ---
-
-
-
 在数字化时代，我们经常听到关于计算机存储单位的术语，例如 Byte 、bit 、 Mbps 和 MB/s 等
 这些单位在计算机科学和信息技术领域起着关键作用，但许多人可能对它们的确切含义和区别感到困惑
 在本文中，我们将深入探讨 Byte 和 bit 的差异，并探讨与之相关的衍生单位，如 Mbps 和 MB/s

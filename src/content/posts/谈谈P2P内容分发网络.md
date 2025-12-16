@@ -2,13 +2,11 @@
 title: 谈谈P2P内容分发网络
 published: 2024-11-30
 description: 谈谈P2P内容分发网络
+image: ../assets/images/img045.webp
 tags: [网络, 隐私]
 category: 技术
 draft: false
 ---
-
-
-
 ## 名词介绍
 P2P CDN（简称PCDN）是一种基于P2P技术的内容分发网络
 与传统的CDN不同，PCDN通过挖掘和利用边缘网络中的海量碎片化闲置资源，构建出一个低成本、高品质的内容分发网络服务

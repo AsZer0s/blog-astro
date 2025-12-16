@@ -2,13 +2,11 @@
 title: htaccess文件格式
 published: 2025-04-29
 description: htaccess文件格式
+image: ../assets/images/img023.webp
 tags: [开发, Linux, 前端, 网络]
 category: 技术
 draft: false
 ---
-
-
-
 ![htaccess](https://dimg04.tripcdn.com/images/0Z013224x8xro6e4w4B66.jpg)
 
 <!-- more -->

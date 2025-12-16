@@ -2,13 +2,11 @@
 title: 为 Linux 服务器配置密钥登录与 VSCode 免密远程连接
 published: 2025-11-28
 description: 为 Linux 服务器配置密钥登录与 VSCode 免密远程连接
+image: ../assets/images/img032.webp
 tags: [Linux, 安全, 网络]
 category: 技术
 draft: false
 ---
-
-
-
 如何在本地生成 SSH 密钥并将公钥添加到服务器，实现无密码（密钥）登录 Linux
 
 <!-- more -->

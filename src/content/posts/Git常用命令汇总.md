@@ -2,13 +2,11 @@
 title: Git常用命令汇总
 published: 2024-12-28
 description: Git常用命令汇总
+image: ../assets/images/img022.webp
 tags: [Git, 网络, 开发, 软件]
 category: 技术
 draft: false
 ---
-
-
-
 教你使用 Git 基本操作
 
 <!-- more -->

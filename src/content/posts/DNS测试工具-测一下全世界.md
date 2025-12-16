@@ -2,13 +2,11 @@
 title: DNS测试工具-测一下全世界
 published: 2025-07-16
 description: DNS测试工具-测一下全世界
+image: ../assets/images/img006.webp
 tags: [开发, 软件, 网络]
 category: 技术
 draft: false
 ---
-
-
-
 ## [dnspy](https://github.com/xxnuo/dns-benchmark) - 测试全世界的 DNS 服务器
 
 <!-- more -->

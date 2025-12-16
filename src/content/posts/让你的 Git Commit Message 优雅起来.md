@@ -2,13 +2,11 @@
 title: 让你的 Git Commit Message 优雅起来
 published: 2025-10-02
 description: 让你的 Git Commit Message 优雅起来
+image: ../assets/images/img044.webp
 tags: [Git, 编程, 杂谈, 开发]
 category: 碎碎念
 draft: false
 ---
-
-
-
 > “写代码一分钟，写 Commit Message 两行泪”  
 > —— 一位被历史代码支配的程序员
 

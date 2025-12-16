@@ -2,13 +2,11 @@
 title: sed 命令入门
 published: 2025-09-09
 description: sed 命令入门
+image: ../assets/images/img029.webp
 tags: [Linux, 软件]
 category: 技术
 draft: false
 ---
-
-
-
 sed 是文本处理三剑客之一
 
 掌握它能能很有效地提高我们的效率

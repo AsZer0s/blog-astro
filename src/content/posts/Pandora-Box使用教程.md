@@ -2,13 +2,11 @@
 title: Pandora-Box使用教程
 published: 2024-11-02
 description: Pandora-Box使用教程
+image: ../assets/images/img027.webp
 tags: [软件, 隐私]
 category: 技术
 draft: false
 ---
-
-
-
 # 1、[Pandora-Box](https://github.com/snakem982/Pandora-Box) 是什么？
 * 一个简易的 Mihomo 桌面客户端，可以进行网络代理
 * 爬取功能可以管理大量订阅节点，支持对节点的协议类型和国家地区筛选，支持将爬取的节点导出

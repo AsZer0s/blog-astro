@@ -2,13 +2,11 @@
 title: JavaScript中forEach方法的async/await异步问题
 published: 2025-03-11
 description: JavaScript中forEach方法的async/await异步问题
+image: ../assets/images/img024.webp
 tags: [开发, 前端, JavaScript]
 category: 技术
 draft: false
 ---
-
-
-
 最近在用Node JS写个小项目的时候发现了一个之前没有注意过的问题
 数组使用forEach方法进行异步操作时执行顺序可能会出现问题
 这篇文章就来简单谈一谈产生这个问题具体原因以及解决方法

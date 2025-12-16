@@ -2,13 +2,11 @@
 title: Ajax对缓存的处理
 published: 2024-11-15
 description: Ajax对缓存的处理
+image: ../assets/images/img003.webp
 tags: [开发, 网络, 前端, JavaScript]
 category: 技术
 draft: false
 ---
-
-
-
 ## 缓存
 浏览器的一次请求需要从服务器获得许多css、img、js等相关的文件
 如果每次请求都把相关资源文件加载一次

@@ -2,13 +2,11 @@
 title: JavaScript飞雪特效
 published: 2024-12-03
 description: JavaScript飞雪特效
+image: ../assets/images/img025.webp
 tags: [开发, 前端, JavaScript]
 category: 技术
 draft: false
 ---
-
-
-
 马上就要到了传统节日“春节”?
 网站添加了飞雪❄️特效
 

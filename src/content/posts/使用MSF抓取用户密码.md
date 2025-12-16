@@ -2,13 +2,11 @@
 title: 使用MSF抓取用户密码
 published: 2024-10-23
 description: 使用MSF抓取用户密码
+image: ../assets/images/img033.webp
 tags: [安全, Linux]
 category: 技术
 draft: false
 ---
-
-
-
 ## 抓取自动登录的密码
 很多用户习惯将计算机设置自动登录
 

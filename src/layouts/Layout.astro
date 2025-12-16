@@ -178,7 +178,7 @@ const bannerOffset =
 		  data-overlayscrollbars-initialize
 	>
 		<!-- Full screen loading overlay -->
-		<div id="page-loading-overlay" class="fixed inset-0 z-[9999] bg-[var(--page-bg)] flex items-center justify-center transition-opacity duration-500 overflow-hidden">
+		<div id="page-loading-overlay" class="fixed inset-0 z-[9999] bg-[var(--page-bg)] flex items-center justify-center transition-opacity duration-500 overflow-hidden pointer-events-none">
 			<!-- Particle canvas background -->
 			<canvas id="particle-canvas" class="absolute inset-0 w-full h-full"></canvas>
 			
@@ -649,6 +649,12 @@ const setup = () => {
 	// Prevent multiple setup calls
 	if (swupSetupComplete) return;
 	swupSetupComplete = true;
+	
+	// Ensure Swup is properly initialized
+	if (!window.swup) {
+		console.error('Swup is not initialized');
+		return;
+	}
 		// TODO: temp solution to change the height of the banner
 		// Commented out: alternative approach for banner height management
 		/*
@@ -692,11 +698,10 @@ const setup = () => {
 		}
 	})
 	window.swup.hooks.on('content:replace', () => {
-		// Only reinitialize scrollbar on subsequent page loads, not initial load
-		if (!isInitialLoad) {
-			initCustomScrollbar();
-		} else {
-			// Mark as no longer initial load after first content:replace
+		// Always reinitialize scrollbar on content replace (including initial load)
+		initCustomScrollbar();
+		// Mark as no longer initial load after first content:replace
+		if (isInitialLoad) {
 			isInitialLoad = false;
 		}
 	})
@@ -736,12 +741,16 @@ const setup = () => {
 		if (heightExtend) {
 			heightExtend.classList.remove('hidden')
 		}
+		
+		// Trigger content fade-in animations on page view
+		const onloadElements = document.querySelectorAll('.onload-animation');
+		onloadElements.forEach((el, index) => {
+			setTimeout(() => {
+				(el as HTMLElement).style.opacity = '1';
+				(el as HTMLElement).style.transform = 'translateY(0)';
+			}, index * 50);
+		});
 	});
-	
-	// Mark initial load as complete after a short delay to catch any late events
-	setTimeout(() => {
-		isInitialLoad = false;
-	}, 100);
 	window.swup.hooks.on('visit:end', (_visit: {to: {url: string}}) => {
 		setTimeout(() => {
 			const heightExtend = document.getElementById('page-height-extend')

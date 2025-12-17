@@ -655,19 +655,6 @@ const setup = () => {
 		console.error('Swup is not initialized');
 		return;
 	}
-		// TODO: temp solution to change the height of the banner
-		// Commented out: alternative approach for banner height management
-		/*
-		window.swup.hooks.on('animation:out:start', () => {
-			const path = window.location.pathname
-			const body = document.querySelector('body')
-			if (path[path.length - 1] === '/' && !body.classList.contains('is-home')) {
-				body.classList.add('is-home')
-			} else if (path[path.length - 1] !== '/' && body.classList.contains('is-home')) {
-				body.classList.remove('is-home')
-			}
-		})
-		*/
 	window.swup.hooks.on('link:click', () => {
 		// Mark that we're no longer on initial load
 		isInitialLoad = false;
@@ -758,12 +745,11 @@ const setup = () => {
 				heightExtend.classList.add('hidden')
 			}
 
-			// Just make the transition looks better
-			const toc = document.getElementById('toc-wrapper');
-			if (toc) {
-				toc.classList.remove('toc-not-ready')
-			}
-		}, 200)
+            const toc = document.getElementById('toc-wrapper');
+            if (toc) {
+                toc.classList.remove('toc-not-ready')
+            }
+        }, 200)
 	});
 }
 if (window?.swup?.hooks) {

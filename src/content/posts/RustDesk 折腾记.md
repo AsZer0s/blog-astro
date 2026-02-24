@@ -2,7 +2,7 @@
 title: 在学校高墙内网穿透连接家里RustDesk的踩坑与折腾记录
 published: 2026-01-13
 description: 在学校严格的代理环境下，如何配置自建RustDesk服务器？
-image: ../assets/images/img049.webp
+image: ../assets/images/img048.webp
 tags: [RustDesk, Docker, 网络配置, 运维]
 category: 折腾记录
 draft: false

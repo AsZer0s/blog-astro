@@ -125,6 +125,12 @@
 			"avatar": "https://filestorage0.oss-cn-hongkong.aliyuncs.com/avatar.png",
 			"description": "分享技术，记录生活",
 			"url": "https://blog.andyjin.website"
+		}，
+		{
+			"name": "MingBlog",
+			"avatar": "https://mingblog.site/icons/icon-512.png",
+			"description": "记录日常生活、城市影像、旅行与观察，以及认真看过、读过和听过的作品",
+			"url": "https://mingblog.site"
 		}
 	]
 }
